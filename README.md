@@ -29,7 +29,7 @@ working...
 Add variable
 
 ```
-appshake package:add 
+appshake set VARIABLE value
 ```
 
 <!-- usage -->

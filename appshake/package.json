@@ -19,8 +19,10 @@
     "eslint": "^4",
     "eslint-config-oclif": "^1",
     "globby": "^8",
+    "lodash": "^4.17.11",
     "mocha": "^5",
-    "nyc": "^12"
+    "nyc": "^12",
+    "path": "^0.12.7"
   },
   "engines": {
     "node": ">=8.0.0"
