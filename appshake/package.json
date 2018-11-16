@@ -1,6 +1,6 @@
 {
   "name": "appshake",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "三橋啓多 @KT83",
   "bin": {
     "appshake": "./bin/run"
