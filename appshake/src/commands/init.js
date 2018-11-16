@@ -4,8 +4,11 @@ const ghdownload = require('download-git-repo')
 class InitCommand extends Command {
   async run() {
     const {args} = this.parse(InitCommand)
-    ghdownload(args.repo, '.', err => {
-      this.log(err ? 'Error' : 'Success')
+    const repo = args.repo || 'Queue-Inc/appshake-template-vue'
+    this.log('appshake starting init your project')
+    ghdownload(repo, '.', err => {
+      if (err) this.log(`appshake init finished with error : ${err}`)
+      this.log('appshake init successfully completed.')
     })
   }
 }
