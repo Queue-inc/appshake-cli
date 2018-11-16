@@ -23,7 +23,7 @@ appshake init Queue-Inc/appshake-template-vue
 Add package
 
 ```
-working...
+appshake package:add package-repo
 ```
 
 Add variable
@@ -31,7 +31,3 @@ Add variable
 ```
 appshake set VARIABLE value
 ```
-
-<!-- usage -->
-# Commands
-<!-- commands -->
