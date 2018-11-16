@@ -1,5 +1,4 @@
 const {Command, flags} = require('@oclif/command')
-const {cli} = require('cli-ux')
 
 class HelloCommand extends Command {
   async run() {

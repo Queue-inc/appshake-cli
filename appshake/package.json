@@ -1,6 +1,6 @@
 {
   "name": "appshake",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "三橋啓多 @KT83",
   "bin": {
     "appshake": "./bin/run"
@@ -9,22 +9,22 @@
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
-    "@oclif/plugin-help": "^2"
+    "@oclif/plugin-help": "^2",
+    "chalk": "^2.4.1",
+    "cli-ux": "^4.9.3",
+    "download-git-repo": "^1.1.0",
+    "lodash": "^4.17.11",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1",
     "@oclif/test": "^1",
     "chai": "^4",
-    "chalk": "^2.4.1",
-    "cli-ux": "^4.9.3",
-    "download-git-repo": "^1.1.0",
     "eslint": "^4",
     "eslint-config-oclif": "^1",
     "globby": "^8",
-    "lodash": "^4.17.11",
     "mocha": "^5",
-    "nyc": "^12",
-    "path": "^0.12.7"
+    "nyc": "^12"
   },
   "engines": {
     "node": ">=8.0.0"

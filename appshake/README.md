@@ -12,6 +12,8 @@ appshake
 [![License](https://img.shields.io/npm/l/appshake.svg)](https://github.com/Queue-Inc/appshake-cli/blob/master/package.json)
 
 <!-- toc -->
+* [Usage](#usage)
+<!-- tocstop -->
 # Usage
 
 Initialize your project with template
