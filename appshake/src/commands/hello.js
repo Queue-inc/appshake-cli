@@ -1,10 +1,10 @@
 const {Command, flags} = require('@oclif/command')
+const {cli} = require('cli-ux')
 
 class HelloCommand extends Command {
   async run() {
-    const {flags} = this.parse(HelloCommand)
-    const name = flags.name || 'world'
-    this.log(`hello ${name} from ./src/commands/hello.js`)
+    const name = await cli.prompt('What is your name?')
+    this.log(name)
   }
 }
 

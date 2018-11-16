@@ -16,6 +16,7 @@
     "@oclif/test": "^1",
     "chai": "^4",
     "chalk": "^2.4.1",
+    "cli-ux": "^4.9.3",
     "download-git-repo": "^1.1.0",
     "eslint": "^4",
     "eslint-config-oclif": "^1",

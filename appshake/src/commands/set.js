@@ -2,6 +2,7 @@ const {Command} = require('@oclif/command')
 const fs = require('fs')
 const path = require('path')
 const _ = require('lodash')
+const chalk = require('chalk')
 
 const ENV_FILE_PATH = '.env'
 const DEV_ENV_FILE_PATH = '.env.development'
@@ -54,21 +55,21 @@ class SetCommand extends Command {
           this.log(`write error ${err}`)
           return
         }
-        this.log('SUCCESS')
+        this.log(chalk.green(`${args.key} successfully set to .env`))
       })
       fs.writeFile(PREFIX_WEB + ENV_FILE_PATH, newData, err => {
         if (err) {
           this.log(`write error ${err}`)
           return
         }
-        this.log('SUCCESS')
+        this.log(chalk.green(`${args.key} successfully set to web/.env`))
       })
       fs.writeFile(PREFIX_ADMIN + ENV_FILE_PATH, newData, err => {
         if (err) {
           this.log(`write error ${err}`)
           return
         }
-        this.log('SUCCESS')
+        this.log(chalk.green(`${args.key} successfully set to admin/.env`))
       })
       // dev
       fs.writeFile(DEV_ENV_FILE_PATH, newData, err => {
@@ -76,21 +77,21 @@ class SetCommand extends Command {
           this.log(`write error ${err}`)
           return
         }
-        this.log('SUCCESS')
+        this.log(chalk.green(`${args.key} successfully set to .env.development`))
       })
       fs.writeFile(PREFIX_WEB + DEV_ENV_FILE_PATH, newData, err => {
         if (err) {
           this.log(`write error ${err}`)
           return
         }
-        this.log('SUCCESS')
+        this.log(chalk.green(`${args.key} successfully set to web/.env.development`))
       })
       fs.writeFile(PREFIX_ADMIN + DEV_ENV_FILE_PATH, newData, err => {
         if (err) {
           this.log(`write error ${err}`)
           return
         }
-        this.log('SUCCESS')
+        this.log(chalk.green(`${args.key} successfully set to admin/.env.development`))
       })
     })
   }

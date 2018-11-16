@@ -1,5 +1,6 @@
 const {Command} = require('@oclif/command')
 const ghdownload = require('download-git-repo')
+const chalk = require('chalk')
 
 class InitCommand extends Command {
   async run() {
@@ -8,7 +9,7 @@ class InitCommand extends Command {
     this.log('appshake starting init your project')
     ghdownload(repo, '.', err => {
       if (err) this.log(`appshake init finished with error : ${err}`)
-      this.log('appshake init successfully completed.')
+      this.log(chalk.green('appshake init successfully completed.'))
     })
   }
 }
