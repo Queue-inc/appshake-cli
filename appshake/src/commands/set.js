@@ -4,7 +4,7 @@ const path = require('path')
 const _ = require('lodash')
 
 const ENV_FILE_PATH = '.env'
-// const DEV_ENV_FILE_PATH = '.env.development'
+const DEV_ENV_FILE_PATH = '.env.development'
 const PREFIX_WEB = 'web' + path.sep
 const PREFIX_ADMIN = 'admin' + path.sep
 
@@ -48,6 +48,7 @@ class SetCommand extends Command {
         return
       }
       const newData = createNewData(data, args.key, args.value)
+      // prod
       fs.writeFile(ENV_FILE_PATH, newData, err => {
         if (err) {
           this.log(`write error ${err}`)
@@ -63,6 +64,28 @@ class SetCommand extends Command {
         this.log('SUCCESS')
       })
       fs.writeFile(PREFIX_ADMIN + ENV_FILE_PATH, newData, err => {
+        if (err) {
+          this.log(`write error ${err}`)
+          return
+        }
+        this.log('SUCCESS')
+      })
+      // dev
+      fs.writeFile(DEV_ENV_FILE_PATH, newData, err => {
+        if (err) {
+          this.log(`write error ${err}`)
+          return
+        }
+        this.log('SUCCESS')
+      })
+      fs.writeFile(PREFIX_WEB + DEV_ENV_FILE_PATH, newData, err => {
+        if (err) {
+          this.log(`write error ${err}`)
+          return
+        }
+        this.log('SUCCESS')
+      })
+      fs.writeFile(PREFIX_ADMIN + DEV_ENV_FILE_PATH, newData, err => {
         if (err) {
           this.log(`write error ${err}`)
           return

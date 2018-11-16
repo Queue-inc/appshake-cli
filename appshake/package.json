@@ -15,6 +15,7 @@
     "@oclif/dev-cli": "^1",
     "@oclif/test": "^1",
     "chai": "^4",
+    "chalk": "^2.4.1",
     "download-git-repo": "^1.1.0",
     "eslint": "^4",
     "eslint-config-oclif": "^1",

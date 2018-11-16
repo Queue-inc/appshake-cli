@@ -6,7 +6,7 @@ const CONFIG_PATH = 'asconfig.json'
 
 let asconfigBase = {
   dependencies: {},
-  prompts: {},
+  prompts: [],
 }
 
 class DepCommand extends Command {
