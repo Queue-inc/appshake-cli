@@ -4,6 +4,7 @@ const fs = require('fs')
 const chalk = require('chalk')
 const {cli} = require('cli-ux')
 const execSync = require('child_process').execSync
+const _ = require('lodash')
 
 const CONFIG_PATH = 'asconfig.json'
 
@@ -31,11 +32,28 @@ class AddCommand extends Command {
     this.log('Analyzing asconfig.json')
     const json = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8'))
     const prompts = json.prompts
-    for (let i = 0; i < prompts.length; i++) {
-      const prompt = prompts[i]
-      const answer = await cli.prompt(prompt.text)
-      const commandString = prompt.action.replace('$answer', answer)
-      const result = execSync(commandString)
+    const questions = _.filter(prompts, prompt => {
+      return prompt.type === 'Question'
+    })
+    const actions = _.filter(prompts, prompt => {
+      return prompt.type === 'Actions'
+    })
+    let answers = {}
+
+    for (let i = 0; i < questions.length; i++) {
+      const question = questions[i]
+      const answer = await cli.prompt(question.text)
+      answers[question.key] = answer
+    }
+
+    for (let i = 0; i < actions.length; i++) {
+      const action = actions[i]
+      for (let k in answers) {
+        if (answers.hasOwnPropery(k)) {
+          action.replace(`$${k}`, answers[k])
+        }
+      }
+      const result = execSync(action)
       this.log(result)
     }
   }
