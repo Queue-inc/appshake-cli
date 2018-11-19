@@ -36,7 +36,7 @@ class AddCommand extends Command {
       return prompt.type === 'Question'
     })
     const actions = _.filter(prompts, prompt => {
-      return prompt.type === 'Actions'
+      return prompt.type === 'Action'
     })
     let answers = {}
 
@@ -45,15 +45,15 @@ class AddCommand extends Command {
       const answer = await cli.prompt(question.text)
       answers[question.key] = answer
     }
-
-    for (let i = 0; i < actions.length; i++) {
-      const action = actions[i]
+    for (let j = 0; j < actions.length; j++) {
+      const action = actions[j]
+      let command = action.command
       for (let k in answers) {
-        if (answers.hasOwnPropery(k)) {
-          action.replace(`$${k}`, answers[k])
+        if (Object.prototype.hasOwnProperty.call(answers, k)) {
+          command = command.replace(`$${k}`, answers[k])
         }
       }
-      const result = execSync(action)
+      const result = execSync(command).toString()
       this.log(result)
     }
   }
